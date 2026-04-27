@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom/client";
 
 const GOLD = "#C5A059";
 const GOLD_LIGHT = "#D4B97A";
@@ -411,7 +412,7 @@ const plans = [
   },
 ];
 
-export default function LMAuditSec() {
+function LMAuditSec() {
   const [scrolled, setScrolled] = useState(false);
   const [activeNiche, setActiveNiche] = useState(null);
   const heroRef = useRef(null);
@@ -715,4 +716,10 @@ export default function LMAuditSec() {
       </footer>
     </>
   );
+}
+
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(<LMAuditSec />);
 }
